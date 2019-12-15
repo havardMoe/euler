@@ -6,14 +6,14 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 
 def fibo_even_sum(stop_cond=4000000):
-    old_product, product, even_sum, temp = 1, 1, 0, 0
-    while product < stop_cond:
-        temp = product
-        product += old_product
-        old_product = temp
+    prev, curr, even_sum, temp = 1, 1, 0, 0
+    while curr < stop_cond:
+        temp = curr
+        curr += prev
+        prev = temp
 
-        if product % 2 == 0:
-            even_sum += product
+        if curr % 2 == 0:
+            even_sum += curr
     return even_sum
 
 
