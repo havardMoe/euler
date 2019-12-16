@@ -3,20 +3,19 @@ A palindromic number reads the same both ways.
 The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
 """
-from itertools import product
 
 
-def is_palindrome(n):
-    num = n
-    rev_num = 0
-    while n > 0:
-        last_digit = n % 10
-        rev_num = 10*rev_num + last_digit
-        n = n//10  # removing last digit from n
-    if num == rev_num:
-        return True
-    else:
-        return False
+def is_palindrome(num):
+    return num == reverse_number(num)
+
+
+def reverse_number(input_number):
+    reversed_number = 0
+    while input_number > 0:
+        last_digit = input_number % 10
+        reversed_number = 10 * reversed_number + last_digit
+        input_number = input_number//10
+    return reversed_number
 
 
 if __name__ == '__main__':
@@ -30,4 +29,5 @@ if __name__ == '__main__':
                     largest = x*y
                     fac1 = x
                     fac2 = y
-    print(f"largest pali: {largest}\nfactor1: {fac1}\nfactor2: {fac2}")
+    print(f"largest palindrome: {largest}\nfactor1: {fac1}\nfactor2: {fac2}")
+
