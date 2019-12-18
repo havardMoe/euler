@@ -20,7 +20,7 @@ def smallest_multiple_v1(divisor_max, divisor_min=1):
 
 
 def smallest_multiple(divisor_max, divisor_min):
-    pass
+    pass 
 
 
 if __name__ == '__main__':
