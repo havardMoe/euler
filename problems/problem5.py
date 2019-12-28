@@ -29,35 +29,34 @@ def sieve_primes(U):
         yield i
 
 
+# def is_multiple(number, divisor_max):
+#     for i in range(2, divisor_max+1):
+#         if number % i != 0:
+#             return False
+#     return True
+
+# same as above
 def is_multiple(number, divisor_max):
-    for i in range(2, divisor_max+1):
-        if number % i != 0:
-            return False
-    return True
+    return all(number % i == 0 for i in range(2, divisor_max+1))
 
 
 # runtime O(m + k * O(is_multiple)) = O(m + k * div_max)
 # m: number of primes under the given div_max.
 # k: number of times you have to add p0 to p.
-def smallest_multiple_v2(divisor_max):
+def smallest_multiple(divisor_max):
     product = 1
     for prime in sieve_primes(divisor_max):  # knowing the lower bound of the answer has to be all the primes multiplied together
         product *= prime
+    lower_bound = product
 
-    product0 = product
-    while 1:
-        if is_multiple(product, divisor_max):
-            return product
-        else:
-            product += product0
+    while not is_multiple(product, divisor_max):
+        product += lower_bound
+    return product
 
 
 if __name__ == '__main__':
-    n = 18
+    n = 20
     t0 = time.time()
-    print(f"smallest_multiple_v1({n}): {smallest_multiple_v1(n)}\ntime taken for v1: {time.time()-t0}")
-
-    t0 = time.time()
-    print(f"smallest_multiple_vi({n}): {smallest_multiple_v2(n)}\n time taken for v2: {time.time()-t0}")
+    print(f"smallest_multiple_vi({n}): {smallest_multiple(n)}\n time taken for v2: {time.time()-t0}")
 
 
