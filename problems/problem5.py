@@ -36,7 +36,7 @@ def is_multiple(number, divisor_max):
     return True
 
 
-# runtime O(m + k)
+# runtime O(m + k * O(is_multiple)) = O(m + k * div_max)
 # m: number of primes under the given div_max.
 # k: number of times you have to add p0 to p.
 def smallest_multiple_v2(divisor_max):

@@ -15,4 +15,4 @@
 15 - 360360	-	2*3*5*7*11*13	(*12)		-	4-6-8-9-10-12-14-15
 16 - 720720	-	2*3*5*7*11*13	(*12)		-	4-6-8-9-10-12-14-15-16
 
-Seems like the answer always is a multiple of the prime numbers added together
+Seems like the answer always is a multiple of the prime numbers multiplied together
