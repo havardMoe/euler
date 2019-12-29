@@ -2,7 +2,8 @@ import math
 import numpy as np
 
 
-def sieve_primes(U):
+def sieve_primes(U=100_000_000):
+    U += 1
     sieve = np.full(U, True, dtype=bool)
     sieve[0] = sieve[1] = False
 
@@ -19,8 +20,8 @@ def faculty(n):
 
 
 if __name__ == '__main__':
-    print(faculty(20))
-    print(2*3*5*7*11*13*17*19)
+    for prime in sieve_primes(7):
+        print(prime)
 
 
 
